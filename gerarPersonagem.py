@@ -34,7 +34,7 @@ def setSexualidade():
 def setRacas():
     racas = ["aesir","anã","elfica","faen","fauno","fira","humana", "juban", "levent", "mahok", "tailox", "aquila", "drow", "reptiliano",
              "naga", "bearos", "centauro", "draconiano/a", "equiceph", "genasi", "groton", "globin", "halfling", "lige", "minotauro", "náiade", "orc", "ratling"]
-    selectedRace = rolatDados.select(racas)
+    selectedRace = rolarDados.select(racas)
     return selectedRace
 
 def setPersonalidade():
@@ -112,7 +112,7 @@ def setPele():
 
     return selectedPele
         
-def set corOlhos():
+def setCorOlhos():
     corOlhos = [ "Negro", "Castanho", "Castanho claro", "Castanho escuro", "Castanho esverdeado", "Verde", "Verde esmeralda", "Verde acinzentado", "Azul claro",
                  "Azul escuro", "mel", "Cinzento", "Cinza prateado", "Dourado", "Violeta", "Cor de avelã", "Azul acinzentado", "Vermelho(albino)", "Âmbar",
                  "Azul", "Castanho", "Castanho claro", "Castanho escuro", "Verde oliva", "Caramelo", "Olheiras", "Esclera com veios de sangue",
@@ -131,7 +131,7 @@ def set corOlhos():
 
     return selectedCorOlhos
     
-def set
+def setCorCabelos():
     corCabelos = [ "Preto","Castanho escuro","Castanho","Castanho claro","Castanho avermelhado","Vermelho","Ruivo","Acobreado","Louro arruivado","Louro-platinado",
                    "Louro claro","Louro","Louro acinzentado","Louro escuro","Louro dourado","Castanho claro","Castanho","Castanho escuro","Preto","Louro escuro",
                    "Louro","Louro claro","Cinzento","Branco prateado","Branco","Têmporas grisalhas","Grisalho","Calvo","Careca"]
@@ -155,151 +155,273 @@ def set
     
     return selectedCorCabelos
 
+def setTiposCabelos():
+    tiposCabelo = ["Cabelos longos","Cabelos curtos","Cabelo volumoso","Cabelo ralo","Cabelo raspado","Cabelo liso","Cabelo cacheado","Cabelo crespo",
+                   "Costeletas longas","Suíças proeminentes","Tranças nos cabelos","Dreadlocks","Moicano longo","Moicano curto","Bigode curto","Bigode longo",
+                   "Bigode fino","Cavanhaque sem bigode","Cavanhaque e bigode","Tranças no cavanhaque","Barba por fazer","Barba rala","Barba curta","Barba crespa",
+                   "Barba longa","Tranças na barba","Sobrancelhas finas","Sobrancelhas grossas","Sobrancelhas unidas","Sobrancelhas hirsutas"]
 
-#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUIIIIIIIIIIIIIIIIIIIIIIIIIII
+    selectedTipoCabelo = rolarDados.select(tiposCabelo)
+    return selectedTipoCabelo
 
+def setNascimentoMundano():
+    nascimentoMundano = ["Em uma área montanhosa","Em um casebre no meio do nada","Em um pântano","Em um navio","Em uma floresta","Em uma cidade portuária",
+                         "Em um vilarejo","Em uma fortaleza anã","Em um grande centro urbano","Em uma aldeia élfica","Em um monastério ou templo clerical",
+                         "Em um reino distante","Durante uma viagem","Em uma fazenda","Em uma ilha","Em uma comunidade halfling","Você não sabe nada sobre seu nascimento",
+                         "Em um acampamento de salteadores","Em uma caverna","Em um circo","Em um cemitério","Em um campo de batalha","Em uma cidade de porte médio",
+                         "No subterrâneo","Na capital do reino","Em uma cela de prisão","No palácio real","Em um acampamento cigano","Em um deserto",
+                         "Em um local completamente destruído"]
+    selectedNascimentoMundano = rolarDados.select(nascimentoMundano)
+    return selectedNascimentoMundano
 
-def set
-tiposCabelo = ["Cabelos longos","Cabelos curtos","Cabelo volumoso","Cabelo ralo","Cabelo raspado","Cabelo liso","Cabelo cacheado","Cabelo crespo","Costeletas longas",
-               "Suíças proeminentes","Tranças nos cabelos","Dreadlocks","Moicano longo","Moicano curto","Bigode curto","Bigode longo","Bigode fino",
-               "Cavanhaque sem bigode","Cavanhaque e bigode","Tranças no cavanhaque","Barba por fazer","Barba rala","Barba curta","Barba crespa","Barba longa",
-               "Tranças na barba","Sobrancelhas finas","Sobrancelhas grossas","Sobrancelhas unidas","Sobrancelhas hirsutas"]
+def setNascimentoEspecial():
+    nascimentoEspecial = ["Durante um equinócio","Durante um ataque de mortos vivos","Durante o ataque de um dragão","Em uma importante data religiosa",
+                          "Durante uma terrível tempestade","Durante a passagem de um cometa","Em uma construção sobre as nuvens","Nas condições de uma antiga profecia",
+                          "Durante um solstício","Em uma ilha que afundou","Durante um ataque de orcs","Durante uma chuva de estrelas cadentes","Em um ritual arcano",
+                          "Durante uma aurora boreal/austral","Você não nasceu, foi “construído” ou “criado”","Durante um terremoto",
+                          "Você não sabe nada sobre seu nascimento","Durante um eclipse lunar","Durante a queda de um meteoro","Prematuramente",
+                          "Em um outro plano de existência","No momento da erupção de um vulcão","Debaixo d’água, ou em um reino submerso",
+                          "Em um barco voador, ou aparato aéreo","Durante um eclipse solar","Durante uma grande epidemia","No dia extra de um ano bissexto",
+                          "Role uma vez nesta tabela e outra na de nascimento mundano","Em outro planeta ou corpo celeste","Role duas vezes nesta tabela"]
 
-    #selectedClass = rolarDados.select(classes)
-    #return selectedClass
+    def NascimentoDuasTabelas(nascimentoEspecial, auxNascimentoEspecial):
+        nascimentoEspecial.remove(nascimentoEspecial[auxNascimentoEspecial])
+        auxNascimentoEspecial = rolarDados.rolar(len(nascimentoEspecial))
+        selectedNascimentoEspecial = nascimentoEspecial[auxNascimentoEspecial]
+        selectedNascimentoEspecial += " " + setNascimentoMundano()
+        return selectedNascimentoEspecial                
 
-def set
-nascimentoMundano = ["Em uma área montanhosa","Em um casebre no meio do nada","Em um pântano","Em um navio","Em uma floresta","Em uma cidade portuária",
-                     "Em um vilarejo","Em uma fortaleza anã","Em um grande centro urbano","Em uma aldeia élfica","Em um monastério ou templo clerical",
-                     "Em um reino distante","Durante uma viagem","Em uma fazenda","Em uma ilha","Em uma comunidade halfling","Você não sabe nada sobre seu nascimento",
-                     "Em um acampamento de salteadores","Em uma caverna","Em um circo","Em um cemitério","Em um campo de batalha","Em uma cidade de porte médio",
-                     "No subterrâneo","Na capital do reino","Em uma cela de prisão","No palácio real","Em um acampamento cigano","Em um deserto",
-                     "Em um local completamente destruído"]
+    auxNascimentoEspecial = rolarDados.rolar(len(nascimentoEspecial))
+    selectedNascimentoEspecial = ""
+    
+    if nascimentoEspecial[auxNascimentoEspecial] == "Role duas vezes nesta tabela"
+        nascimentoEspecial.remove(nascimentoEspecial[auxNascimentoEspecial])
+        
+        for x in range (0,2,1):
+            auxNascimentoEspecial = rolarDados.rolar(len(nascimentoEspecial))
+            
+            if nascimentoEspecial[auxNascimentoEspecial] == "Role uma vez nesta tabela e outra na de nascimento mundano":
+                selectedNascimentoEspecial += NascimentoDuasTabelas(nascimentoEspecial, auxNascimentoEspecial) + " "
+            else:
+                selectedNascimentoEspecial += nascimentoEspecial[auxNascimentoEspecial] + " "
+                
+    else if nascimentoEspecial[auxNascimentoEspecial] == "Role uma vez nesta tabela e outra na de nascimento mundano":
+                selectedNascimentoEspecial += NascimentoDuasTabelas(nascimentoEspecial, auxNascimentoEspecial) + " "
+    else:
+        selectedNascimentoEspecial += nascimentoEspecial[auxNascimentoEspecial] + " "
 
-def set
-nascimentoEspecial = ["Durante um equinócio","Durante um ataque de mortos vivos","Durante o ataque de um dragão","Em uma importante data religiosa",
-                      "Durante uma terrível tempestade","Durante a passagem de um cometa","Em uma construção sobre as nuvens","Nas condições de uma antiga profecia",
-                      "Durante um solstício","Em uma ilha que afundou","Durante um ataque de orcs","Durante uma chuva de estrelas cadentes","Em um ritual arcano",
-                      "Durante uma aurora boreal/austral","Você não nasceu, foi “construído” ou “criado”","Durante um terremoto",
-                      "Você não sabe nada sobre seu nascimento","Durante um eclipse lunar","Durante a queda de um meteoro","Prematuramente",
-                      "Em um outro plano de existência","No momento da erupção de um vulcão","Debaixo d’água, ou em um reino submerso",
-                      "Em um barco voador, ou aparato aéreo","Durante um eclipse solar","Durante uma grande epidemia","No dia extra de um ano bissexto",
-                      "Role uma vez nesta tabela e outra na de nascimento mundano","Em outro planeta ou corpo celeste","Role duas vezes nesta tabela"]
-'''
-FAZER
-27 e 29
-'''
-
-def set
-seusPais = ["Seus pais eram moradores de rua, a classe social mais baixa do populacho",
-            "Órfão de um, mas criado pelo outro. (Role para determinar qual morreu: par - pai; impar - mãe)",
-            "Órfão de pai e mãe, mas criado por outros (par - parentes. ímpar - não parentes)",
-            "Você é completamente órfão e cresceu nas ruas ou em um orfanato","Seus pais são nobres",
-            "Um de seus pais é nobre (Role para determinar: par - pai; impar - mãe)",
+    return selectedNascimentoEspecial
+                
+def setPais():
+seusPais = ["Seus pais eram moradores de rua, a classe social mais baixa do populacho",            
+            "Você é completamente órfão e cresceu nas ruas ou em um orfanato","Seus pais são nobres",            
             "Seus pais são mercadores/comerciantes","Seus pais são ladrões/piratas/foragidos","Seus pais são artistas/artesãos",
-            "Seus pais são vivos, mas lhe deram para ser criado por outros (Role: par - parentes; impar - não parentes)",
             "Seus pais são escravos/servos","Seus pais são aventureiros","Você foi adotado por uma raça diferente da sua",
             "Você foi adotado por uma Instituição Religiosa","Você foi adotado por uma Guilda de Ladrões/Mercantes",
             "Seus pais são uma união de duas famílias inimigas","Você é fruto de uma relação incestuosa","Sua mãe não sabe que você ainda vive",
             "Seu pai não sabe que você existe/ainda vive","Você foi abandonado à própria sorte e não sabe nada sobre seus pais","Seus pais são camponeses",
-            "Seu pai é um rei","Sua mãe é uma rainha","Um de seus pais morreu e você tem uma madrasta ou padrasto (Role: par - padrasto; impar - madrasta)",
+            "Seu pai é um rei","Você é um filho bastardo","Ambos os seus pais são de outro plano/mundo","Sua mãe é uma rainha",
+            "Seus pais são separados e você tem madrasta e padrasto","Você é filho de um ser de outro plano/mundo com um habitante deste mundo.",            
+
+            "Órfão de um, mas criado pelo outro. (Role para determinar qual morreu: par - pai; impar - mãe)",
             "Um de seus pais é membro do clero (Role para determinar quem: par - pai; impar - mãe)",
             "Seus pais são separados (Role para determinar quem lhe criou: par - pai; impar - mãe)",
-            "Seus pais são separados e você tem madrasta e padrasto","Você é filho de um ser de outro plano/mundo com um habitante deste mundo.",
-            "Ambos os seus pais são de outro plano/mundo","Você é um filho bastardo"]
-#FAZER 1,2,5,9,22,23,24
+            "Um de seus pais é nobre (Role para determinar: par - pai; impar - mãe)",
+            
+            "Órfão de pai e mãe, mas criado por outros (par - parentes. ímpar - não parentes)",
+            "Seus pais são vivos, mas lhe deram para ser criado por outros (Role: par - parentes; impar - não parentes)",
+            
+            "Um de seus pais morreu e você tem uma madrasta ou padrasto (Role: par - padrasto; impar - madrasta)"]
 
-def set
-houveSorteTragedia = ["Nada aconteceu, você teve uma vida bem mundana e monótona","Role uma vez na tabela TRAGÉDIA","Role uma vez na tabela SORTE",
-                      "Role uma vez na tabela SORTE e uma vez na tabela TRAGÉDIA."]
+    selectedPais = rolarDados.rolar(30)
+    aux = ""
+    
+    if selectedPais > 22:
+        aux = rolarDados.parImpar()
 
-sorte = ["Você herdou bens familiares (uma casa, terras,cavalo, dinheiro, armas, etc.)",
-         "Sua infância foi próxima a circos/estábulos/afins e aprendeu coisas que acalmam os animais.",
-         "Você ou sua família encontrou um item muito poderoso e desejado.",
-         "Independente de seu status social, você conviveu com nobres na corte, e você acabou recebendo educação para se portar entre eles",
-         "Você encontrou um mestre que lhe ensinou uma técnica/segredo profissional importante e fenomenal.",
-         "Você ou sua família descobriu um segredo importante que pode beneficiá-lo de alguma forma muito vantajosa.",
-         "Uma pessoa de poder político ou econômico no reino lhe deve um favor","Você encontrou um mapa que pode guiá-lo a um grande tesouro que pode existir ou não.",
-         "Uma criatura poderosa (ex: um gênio, um dragão, uma fada, etc.) lhe deve um favor",
-         "Você e sua família estão em boas graças com o clero local. Além disso, você fosse muito bem educado nas tradições religiosas.",
-         "Você ou sua família fez um contato poderoso nos altos escalões de governo do reino (um conselheiro/regente/ministro).",
-         "Você nasceu em um dia iluminado, e os animais selvagens tendem a reagir positivamente na sua presença e tentativa de contatos.",
-         "Você ganhou a confiança de uma guilda ou grupo comum. (de ladrões, de artífices, de mercadores, etc.)",
-         "Você tornou-se próximo de membros de uma comunidade de uma outra raça e eles lhe consideram um amigo de seu povo.",
-         "Você ganhou a confiança da guilda (de ladrões, de artífices, de mercadores, etc.) mais poderosa do reino",
-         "Você tem uma facilidade natural para línguas, podendo aprender qualquer uma (desde que haja alguém com quem aprender).",
-         "Sua família está envolvida em uma conspiração, em uma posição confortável",
-         "Sua família descende de um grande e famoso herói, e seu sobrenome é muito reconhecido.",
-         "Sua família recebeu algum tipo de benção divina ou dom especial",
-         "Você possui um ancestral de outra raça e eles o consideram como parente",
-         "Seu sangue possui tradição em derrotar certo tipo de criatura",
-         "Você tem um dom natural para passar emoções distintas com sua voz, seja um grito em batalha, ameaça numa interrogação, ou um galanteio.",
-         "Você adquiriu uma simpatia inexplicável de alguém forte e poderoso",
-         "Você puxou só o melhor de seus pais! Sua beleza não passa despercebida pelas outras pessoas.",
-         "Você teve acesso a uma vasta biblioteca desde pequeno, tendo contato com outras culturas e línguas desde jovem.",
-         "Você herdou um verdadeiro estômago de avestruz, e é capaz de comer coisas que fariam a maioria das pessoas passar mal.",
-         "Você cresceu num local pouco lúgrube e isso o tornou mais resistente à doenças.",
-         "Um grupo religioso/criminoso vê em você o líder ideal para a organização/igreja.",
-         "Você cresceu no campo, aprendendo a utilizar a natureza a sua volta para obter informações",
-         "Você é realmente muito sortudo. Role duas vezes nesta tabela."]
+        if aux%2 == 0:
+            if selectedPais < 27:
+                aux = ", pai"
+            if selectedPais < 29:
+                aux = ", parentes"
+            if selectedPais < 30:
+                aux = ", padastro"
+        else:
+            if selectedPais < 27:
+                aux = ", mãe"
+            if selectedPais < 29:
+                aux = ", não parentes"
+            if selectedPais < 30:
+                aux = ", madastra"
+
+    selectedPais = seusPais[selectedPais] + aux
+    return selectedPais
+
+def setSorteTragedia():
+    houveSorteTragedia = ["Nada aconteceu, você teve uma vida bem mundana e monótona","Role uma vez na tabela TRAGÉDIA","Role uma vez na tabela SORTE",
+                          "Role uma vez na tabela SORTE e uma vez na tabela TRAGÉDIA."]
+    selectedSorteTragedia = rolarDados.rolar(4)
+    selectedSorteTragedia = houveSorteTragedia[selectedSorteTragedia]
+    return selectedSorteTragedia
+    
+def setSorte():
+    sorte = ["Você herdou bens familiares (uma casa, terras,cavalo, dinheiro, armas, etc.)",
+             "Sua infância foi próxima a circos/estábulos/afins e aprendeu coisas que acalmam os animais.",
+             "Você ou sua família encontrou um item muito poderoso e desejado.",
+             "Independente de seu status social, você conviveu com nobres na corte, e você acabou recebendo educação para se portar entre eles",
+             "Você encontrou um mestre que lhe ensinou uma técnica/segredo profissional importante e fenomenal.",
+             "Você ou sua família descobriu um segredo importante que pode beneficiá-lo de alguma forma muito vantajosa.",
+             "Uma pessoa de poder político ou econômico no reino lhe deve um favor","Você encontrou um mapa que pode guiá-lo a um grande tesouro que pode existir ou não.",
+             "Uma criatura poderosa (ex: um gênio, um dragão, uma fada, etc.) lhe deve um favor",
+             "Você e sua família estão em boas graças com o clero local. Além disso, você fosse muito bem educado nas tradições religiosas.",
+             "Você ou sua família fez um contato poderoso nos altos escalões de governo do reino (um conselheiro/regente/ministro).",
+             "Você nasceu em um dia iluminado, e os animais selvagens tendem a reagir positivamente na sua presença e tentativa de contatos.",
+             "Você ganhou a confiança de uma guilda ou grupo comum. (de ladrões, de artífices, de mercadores, etc.)",
+             "Você tornou-se próximo de membros de uma comunidade de uma outra raça e eles lhe consideram um amigo de seu povo.",
+             "Você ganhou a confiança da guilda (de ladrões, de artífices, de mercadores, etc.) mais poderosa do reino",
+             "Você tem uma facilidade natural para línguas, podendo aprender qualquer uma (desde que haja alguém com quem aprender).",
+             "Sua família está envolvida em uma conspiração, em uma posição confortável",
+             "Sua família descende de um grande e famoso herói, e seu sobrenome é muito reconhecido.",
+             "Sua família recebeu algum tipo de benção divina ou dom especial",
+             "Você possui um ancestral de outra raça e eles o consideram como parente",
+             "Seu sangue possui tradição em derrotar certo tipo de criatura",
+             "Você tem um dom natural para passar emoções distintas com sua voz, seja um grito em batalha, ameaça numa interrogação, ou um galanteio.",
+             "Você adquiriu uma simpatia inexplicável de alguém forte e poderoso",
+             "Você puxou só o melhor de seus pais! Sua beleza não passa despercebida pelas outras pessoas.",
+             "Você teve acesso a uma vasta biblioteca desde pequeno, tendo contato com outras culturas e línguas desde jovem.",
+             "Você herdou um verdadeiro estômago de avestruz, e é capaz de comer coisas que fariam a maioria das pessoas passar mal.",
+             "Você cresceu num local pouco lúgrube e isso o tornou mais resistente à doenças.",
+             "Um grupo religioso/criminoso vê em você o líder ideal para a organização/igreja.",
+             "Você cresceu no campo, aprendendo a utilizar a natureza a sua volta para obter informações",
+             "Você é realmente muito sortudo. Role duas vezes nesta tabela."]
+
+    selectedSorte = rolarDados.select(sorte)
+
+    if selectedSorte ==  "Você é realmente muito sortudo. Role duas vezes nesta tabela.":
+        sorte.remove("Você é realmente muito sortudo. Role duas vezes nesta tabela.")
+        selectedSorte = rolarDados.select(sorte)
+        sorte.remove(selectedSorte)
+        selectedSorte += " e " + rolarDados.select(sorte)
+        return selectedSorte
+    return selectedSorte
+
+def setTragedia():
+    tragedia = ["Sua família perdeu tudo devido a uma traição", "Sua família foi dizimada por monstros. Você pode ou não ser o único sobrevivente.",
+                "Sua família faliu devido à má administração","Sua família é afligida por algum tipo de doença.","Sua família foi exilada",
+                "Sua família foi vitimada por uma epidemia","Sua família está aprisionada em algum lugar.","Sua família foi escravizada","Sua família desapareceu!",
+                "Sua família perdeu tudo com dívidas de jogo","Sua família está envolta em uma conspiração","Você adquiriu algum tipo de vício",
+                "Sua família é vive em guerra interna por poder","Você herdou dívidas familiares",
+                "Você sofreu um acidente que o deixou com sequelas físicas para sempre (olho perdido, maneta, dedos perdidos, manco, cicatrizes, etc)",
+                "Você provocou, inadvertidamente, a destruição de sua família","Você é considerado a ovelha negra da família e desacreditado por seus parentes",
+                "Sua família é vítima de uma maldição","Você traiu sua família","Sua família está sendo caçada",
+                "Você teve contato com um grande horror sobrenatural que o deixou com sequelas mentais. Quase todos (exceto aqueles mais próximos) o consideram louco.",
+                "Sua família sofre com perseguições religiosas ou culturais",
+                "Você ou sua família descobriu um segredo importante, e alguém quer garantir que isso continue sendo um segredo.",
+                "Você foi responsável pela morte de um membro de sua família",
+                "Você já esteve preso por 1d6 meses",
+                "Você foi traído. (Role 1d30 para determinar: 1-2-amigo; 3-4-parente; 5-6-colega de trabalho ou integrante do mesmo grupo)",
+                "Você teve um(a) amante, amigo ou parente morto.(Par - Você não sabe quem foi, nem tem pistas do assassino; Impar - Você sabe quem foi o responsável, mas precisa de provas)",
+                "Você está sendo caçado por uma guilda poderosa(de ladinos, de comerciantes etc) por algo que fez; há provas que apontam sua culpa no caso (Par - Não foi você quem fez, e as provas são forjadas; Impar - Foi você quem fez, e eles tem provas concretas",
+                "Você foi acusado de um crime e hoje é considerado fora-da-lei e perseguido pela guarda do reino. (Par – Você é culpado pelo crime; Impar – Você foi acusado injustamente por um crime que não cometeu)",
+                "Você é do tipo judiado pela vida. Role duas vezes nesta tabela."]
+
+    selectedTragedia = rolarDados.select(tragedia)
+
+    if selectedTragedia == "Você é do tipo judiado pela vida. Role duas vezes nesta tabela.":
+        tragedia.remove(selectedTragedia)
+        auxTragedia1 = ""
+        auxTragedia2 = ""
+        while auxTragedia1 == auxTragedia2:
+            auxTragedia1 = rolarDados.select(tragedia)
+            auxTragedia2 = rolarDados.select(tragedia)
+            
+        if 23 < tragedia.index(auxTragedia1) < 26 and 23 < tragedia.index(auxTragedia2) < 26:
+            #Os 2 no D6
+            auxTragedia1 += " Resultado: " + str(rolarDados.rolar(6) + 1)
+            auxTragedia2 += " Resultado: " + str(rolarDados.rolar(6) + 1)
+            
+        elif 25 < tragedia.index(auxTragedia1) < 29 and 25 < tragedia.index(auxTragedia2) < 29:
+            #Os 2 no par impar
+            auxTragedia1 += " Resultado: " + str(rolarDados.parImpar())
+            auxTragedia2 += " Resultado: " + str(rolarDados.parImpar())
+            
+        elif 25 < tragedia.index(auxTragedia1) < 29 and 23 < tragedia.index(auxTragedia2) < 26:
+            #Um no par impar outro no D6
+            auxTragedia1 += " Resultado: " + str(rolarDados.parImpar())
+            auxTragedia2 += " Resultado: " + str(rolarDados.rolar(6) + 1)
+            
+        elif 23 < tragedia.index(auxTragedia1) < 26 and 25 < tragedia.index(auxTragedia2) < 29:
+            #Um no D6 outro no par impar
+            auxTragedia1 += " Resultado: " + str(rolarDados.rolar(6) + 1)
+            auxTragedia2 += " Resultado: " + str(rolarDados.parImpar())
+            
+        elif 25 < tragedia.index(auxTragedia1) < 29 and tragedia.index(auxTragedia2) < 24:
+            #Um no par impar outro no nada
+            auxTragedia1 += " Resultado: " + str(rolarDados.parImpar())
+            
+        elif tragedia.index(auxTragedia1) < 24 and 25 < tragedia.index(auxTragedia2) < 29:
+            #Um no nada outro par impar
+
+            auxTragedia2 += " Resultado: " + str(rolarDados.parImpar())
+            
+        elif 23 < tragedia.index(auxTragedia1) < 26 and tragedia.index(auxTragedia2) < 24:
+            #Um no D6 outro no nada
+            auxTragedia1 += " Resultado: " + str(rolarDados.rolar(6) + 1)
+            
+        elif tragedia.index(auxTragedia1) < 24 and 23 < tragedia.index(auxTragedia2) < 26:
+            #Um no nada outro no D6
+
+            auxTragedia2 += " Resultado: " + str(rolarDados.rolar(6) + 1)
+            
+        return auxTragedia1 + " " + auxTragedia2
+
+    if tragedia.index(selectedTragedia) < 24:
+        return selectedTragedia
+    elif tragedia.index(selectedTragedia) < 26:
+        return selectedTragedia + " Resultado: " + str(rolarDados.rolar(6) + 1)
+    else:
+        return selectedTragedia + " Resultado: " + str(rolarDados.parImpar())
+
+
+def setStatusInicial():
+    statusInicial = ["Escravo","Plebeu", "Nobre"]
+    return rolarDados.select(statusInicial)
+
+def setEscravo():
+    profissaoEscravo = ["Camareiro","Pajem","Escravo Sexual","Prostituta","Bufão","Bobo da Corte","Lenhador","Faxineiro","Provador Real","Trabalhador Braçal",
+                        "Estivador","Acrobata","Malabarista","Gladiador","Dançarino","Jardineiro","Coveiro","Tratador de Animais","Limpador de Fossas","Marinheiro",
+                        "Remador","Carvoeiro","Mineiro","Garimpeiro","Pedreiro","Cozinheiro","Limpador de Chaminés","Servente Doméstico","Fiandeiro","Cordoeiro",
+                        "Trabalhador Agrícola","Lavadeira","Eunuco","Cesteiro","Controlador de Pragas","Escriba","Pastor de Animais",
+                        "Role a profissão na tabela de PLEBEUS"]
+
+    selectedEscravo = rolarDados.select(profissaoEscravo)
+
+    if selectedEscravo == "Role a profissão na tabela de PLEBEUS":
+        return "Escravo como plebeu " + setPlebeu()
+
+    return "Escravo " + selectedEscravo
+
+
+
+#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+
+
+def setPlebeu():
+    profissaoPlebeu = ["Role a profissão na tabela de ESCRAVOS","Mendigo","Ferreiro","Taverneiro", "Estalajadeiro","Ceramicista", "Oleiro","Curtidor","Agricultor",
+                       "Alfaiate","Sapateiro","Armeiro","Padeiro","Açougueiro","Cirireiro (Fazedor de Velas)","Ator","Ourives", "Joalheiro","Carpinteiro",
+                       "Ajudante do Clero","Vendedor","Feirante","Mascate","Dono de Bordel","Capataz","Pescador","Caçador","Peleiro","Herbalista","Apotecario",
+                       "Bibliotecário","Copista","Cervejeiro","Vinicultor","Tecelão","Membro do Baixo Clero",
+                       "Bandido (Role para determinar: 1 a 6 - batedor de carteiras; 7 a 12 - salteador; 13 a 18 - matador; 19 a 24 – arrombador de casas; 25 a 30 – capanga)",
+                       "Soldado (Role para determinar: 1 a 9 - miliciano; 10 a 15 - guarda; 16 a 21 – mercenário; 22 a 26 - soldado profissional; 27 a 30 - veterano de guerra)",
+                       "Role a profissão na tabela de NOBRES"]
 '''
 FAZER
-29
-'''
-
-tragedia = ["Sua família perdeu tudo devido a uma traição", "Sua família foi dizimada por monstros. Você pode ou não ser o único sobrevivente.",
-            "Sua família faliu devido à má administração","Sua família é afligida por algum tipo de doença.","Sua família foi exilada",
-            "Sua família foi vitimada por uma epidemia","Sua família está aprisionada em algum lugar.","Sua família foi escravizada","Sua família desapareceu!",
-            "Sua família perdeu tudo com dívidas de jogo","Sua família está envolta em uma conspiração","Você adquiriu algum tipo de vício",
-            "Sua família é vive em guerra interna por poder","Você herdou dívidas familiares",
-            "Você sofreu um acidente que o deixou com sequelas físicas para sempre (olho perdido, maneta, dedos perdidos, manco, cicatrizes, etc)",
-            "Você provocou, inadvertidamente, a destruição de sua família","Você é considerado a ovelha negra da família e desacreditado por seus parentes",
-            "Sua família é vítima de uma maldição","Você traiu sua família","Sua família está sendo caçada",
-            "Você teve contato com um grande horror sobrenatural que o deixou com sequelas mentais. Quase todos (exceto aqueles mais próximos) o consideram louco.",
-            "Sua família sofre com perseguições religiosas ou culturais",
-            "Você ou sua família descobriu um segredo importante, e alguém quer garantir que isso continue sendo um segredo.",
-            "Você foi responsável pela morte de um membro de sua família",
-            "Você foi traído. (Role 1d30 para determinar: 1-10-amigo; 11-20-parente; 21-30-colega de trabalho ou integrante do mesmo grupo)",
-            "Você teve um(a) amante, amigo ou parente morto.(Par - Você não sabe quem foi, nem tem pistas do assassino; Impar - Você sabe quem foi o responsável, mas precisa de provas)",
-            "Você está sendo caçado por uma guilda poderosa(de ladinos, de comerciantes etc) por algo que fez; há provas que apontam sua culpa no caso (Par - Não foi você quem fez, e as provas são forjadas; Impar - Foi você quem fez, e eles tem provas concretas",
-            "Você foi acusado de um crime e hoje é considerado fora-da-lei e perseguido pela guarda do reino. (Par – Você é culpado pelo crime; Impar – Você foi acusado injustamente por um crime que não cometeu)",
-            "Você já esteve preso por 1d6 meses",
-            "Você é do tipo judiado pela vida. Role duas vezes nesta tabela."]
-'''
-Fazer
-24
-25
-26
-27
-28
-29
-'''
-
-def set
-statusInicial = ["Escravo","Plebeu", "Nobre"]
-
-profissaoEscravo = ["Camareiro","Pajem","Escravo Sexual","Prostituta","Bufão","Bobo da Corte","Lenhador","Faxineiro","Provador Real","Trabalhador Braçal",
-                    "Estivador","Acrobata","Malabarista","Gladiador","Dançarino","Jardineiro","Coveiro","Tratador de Animais","Limpador de Fossas","Marinheiro",
-                    "Remador","Carvoeiro","Mineiro","Garimpeiro","Pedreiro","Cozinheiro","Limpador de Chaminés","Servente Doméstico","Fiandeiro","Cordoeiro",
-                    "Trabalhador Agrícola","Lavadeira","Eunuco","Cesteiro","Controlador de Pragas","Escriba","Pastor de Animais",
-                    "Role a profissão na tabela de PLEBEUS"]
-'''
-FAZER
-ultimo
-'''
-
-profissaoPlebeu = ["Role a profissão na tabela de ESCRAVOS","Mendigo","Ferreiro","Taverneiro", "Estalajadeiro","Ceramicista", "Oleiro","Curtidor","Agricultor",
-                   "Alfaiate","Sapateiro","Armeiro","Padeiro","Açougueiro","Cirireiro (Fazedor de Velas)","Ator","Ourives", "Joalheiro","Carpinteiro",
-                   "Ajudante do Clero","Vendedor","Feirante","Mascate","Dono de Bordel","Capataz","Pescador","Caçador","Peleiro","Herbalista","Apotecario",
-                   "Bibliotecário","Copista","Cervejeiro","Vinicultor","Tecelão","Membro do Baixo Clero",
-                   "Bandido (Role para determinar: 1 a 6 - batedor de carteiras; 7 a 12 - salteador; 13 a 18 - matador; 19 a 24 – arrombador de casas; 25 a 30 – capanga)",
-                   "Soldado (Role para determinar: 1 a 9 - miliciano; 10 a 15 - guarda; 16 a 21 – mercenário; 22 a 26 - soldado profissional; 27 a 30 - veterano de guerra)",
-                   "Role a profissão na tabela de NOBRES"]
-'''
-FAZER
+primeiro
 ultimos 3
 '''    
 
+def set
 profissaoNobre = ["Role a profissão na tabela de PLEBEUS",
                   "Artista (Role para determinar: 1 a 6 – escultor; 7 a 12 – pintor; 13 a 18 – músico; 19 a 24 – escritor; 25 a 30 – poeta)",
                   "Falcoeiro","Escudeiro","Fazendeiro Livre","Conselheiro Religioso","Conselheiro Real", "Magistrado","Coletor de Impostos","Comandante","General",
@@ -315,12 +437,14 @@ FAZER
 def set
 amigoInimigo = ["UM INIMIGO","UM AMIGO","VOCÊ FEZ UM AMIGO e VOCÊ FEZ UM INIMIGO","2 de 1 e 1 do outro"]
 
+def set
 amigo = ["Um antigo mentor","Um membro do clero","Um colega de armas","Um grande sábio","Um antigo amante", "Um mercador","Um ex-inimigo","Um pirata","Seu patrão",
          "Um empregado","Um filho de seu patrão","Um cavaleiro","Um amigo de infância","O chefe de uma quadrilha de salteadores","Um parente distante",
          "Alguém de uma raça odiada ou pouco comum","O dono da taverna","Um escravista","O ferreiro da cidade","Um mercenário","Um soldado","O capitão de um navio",
          "O chefe da guarda","Um general ou alto comandante militar","Um ladrão","O chefe da guilda de ladrões","Alguém com quem trabalhou","Um mago","Um nobre",
          "O rei"]
 
+def set
 origemAmizade = ["Você salvou a vida dele","Ele salvou a sua vida","Ele é como um pai para você","Ele é como um filho para você",
                  "Ele é como se fosse seu irmão mais velho","Ele é como se fosse seu irmão mais novo","Você defendeu a honra dele","Ele defendeu sua honra",
                  "Suas famílias são amigas de longa data","Vocês simplesmente gostam um do outro.","Ele o defendeu em uma briga ou combate",
@@ -330,13 +454,14 @@ origemAmizade = ["Você salvou a vida dele","Ele salvou a sua vida","Ele é como
                  "Você voluntariamente assumiu a culpa por algo que ele fez","Ele voluntariamente assumiu a culpa por algo que você fez",
                  "Vocês enfrentaram um perigos juntos","Vocês compartilham um segredo","Vocês possuem um forte interesse comum por alguma coisa",
                  "Vocês cresceram juntos","Vocês foram vizinhos","Vocês frequentavam o mesmo local (taverna, igreja, etc.)"]
-
+def set
 inimigo = ["Um ex-amante","Um inimigo de infância","Alguém com quem trabalhou","Um membro do clero","Seu ex-patrão","Um filho de seu patrão","Um soldado",
            "Um ex-amigo","Um parente distante","Um ladrão","O ferreiro da cidade","O dono da taverna","O chefe da guarda","Um nobre","Um colega de armas",
            "Um antigo mentor","Um grande sábio","Um mercador","Um pirata","Um empregado","Um cavaleiro","O chefe de uma quadrilha de salteadores",
            "Alguém de uma raça odiada ou pouco comum","Um escravista","Um mercenário","O capitão de um navio","Um general ou alto comandante militar",
            "O chefe da guilda de ladrões","Um mago","O rei"]
 
+def set
 causaInimizade = ["Você causou a morte de um ente querido dele (Role para determinar: 1 a 6 - aliado; 7 a 14 - amigo; 15 a 22 - parente; 23 a 30 - amante)",
                   "Ele causou a morte de um ente querido seu (Role para determinar: 1 a 6 - aliado; 7 a 14 - amigo; 15 a 22 - parente; 23 a 30 - amante)",
                   "Você deve dinheiro a ele","Você rejeitou uma proposta dele","Ele deve dinheiro a você","Ele rejeitou uma proposta sua","Você ofendeu sua honra",
@@ -349,6 +474,7 @@ causaInimizade = ["Você causou a morte de um ente querido dele (Role para deter
                   "Você tem inveja das habilidades dele","Ele frustrou seus planos","Vocês simplesmente não se gostam, sem maiores razões",
                   "Vocês foram enganados por um terceiro, mas culpam um ao outro"]
 
+def set
 consequenciaInimizade = ["Vão se insultar em via pública","Vão jogar pedras um no outro","Você irá partir para cima do outro, que tentará fugir",
                          "Seu inimigo irá partir para cima de você, que tentará fugir","Ambos vão partir um para cima do outro","Um vai ignorar o outro",
                          "Um vai ignorar o outro, mas tentarão se apunhalar depois","Seu inimigo vai chamar um grupo para dar cabo de você",
@@ -368,6 +494,7 @@ def set
 vidaAmorosa = ["Nunca se interessou ou nunca teve ninguém.","um CASO AMOROSO TRÁGICO OU PROBLEMÁTICO.",
                "Apenas romances passageiros e pouco dignos de nota","Apenas um, mas um caso feliz e duradouro."]
 
+def set
 amorProblematico = ["A família do seu amor odeia você","Suas famílias são rivais ou inimigas declaradas","Sua família odeia seu amor","Vocês são de raças diferentes",
                     "Amigos de seu amor odeiam vocês","Vocês são de classes sociais distintas","Seus amigos odeiam seu amor",
                     "Você foi o responsável pela morte do seu amor, ou pelo menos acredita que sim",
