@@ -1,4 +1,5 @@
 import rolarDados;
+import modelPersonagem;
 
 # Vetores Banco de Dados
 
@@ -771,195 +772,218 @@ def setProblemaAuditivo():
     return rolarDados.select(nivel)
 
 def setPerdaMemoria():
-    perdaMemoria("Não se lembra do passado.", "Só lembra do passado.")
+    perdaMemoria= ["Não se lembra do passado.", "Só lembra do passado."]
+    return rolarDados.select(perdaMemoria)
 
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ROLAGENS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-#introvertido?
-introvertido = setIntrovertido()
+def gerarPersonagem():
+    #Classe
+    classe = setClass()
 
-#cor da pele
-corPele = setPele()
+    #Genero
+    genero = setGenero()
 
-#cor dos olhos
-corOlhos = setCorOlhos()
+    #Sexualidade
+    sexualidade = setSexualidade()
 
-#cor do cabelo
-corCabelos = setCorCabelos()
+    #Raça
+    raca = setRacas()
 
-#tipo de cabelo
-TipoCabelos = setTiposCabelos()
+    #Personalidade
+    personalidade = setPersonalidade()
 
-#tipo de nascimento
-if rolarDados.parImpar() < 2:
-    #nascimento
-    nascimento = setNascimentoMundano()
-else:
-    #nascimento
-    nascimento = setNascimentoEspecial()
-    
-#pais
-pais = setPais()
+    #introvertido?
+    introvertido = setIntrovertido()
 
-#irmãos?
-if rolarDados.parImpar() < 2:
-    irmaos = "Filho único"
-else:
-    irmaos = str(rolarDados.rolar(12)+1)
+    #pele
+    pele = setPele()
 
-#Sorte/Tragedia
-SorteTragedia = rolarDados.rolar(4)
+    #cor dos olhos
+    corOlhos = setCorOlhos()
 
-if SorteTragedia == 1:
-    SorteTragedia = setTragedia()
-elif SorteTragedia == 2:
-    SorteTragedia = setSorte()
-elif SorteTragedia == 3:
-    SorteTragedia = setSorte() + " " + setTragedia()
-else:
-    SorteTragedia = "Vida monótona"
-    
-#Status Social Inicial
-statusInicial = setStatusInicial()
+    #cor do cabelo
+    corCabelos = setCorCabelos()
 
-#Profissão
-if statusInicial == "Escravo":
-    profissao = setEscravo()
-elif statusInicial == "Plebeu":
-    profissao = setPlebeu()
-elif statusInicial == "Nobre":
-    profissao = setNobre()
-    
-#Amigos e inimigos
-amigosInimigos = rolarDados.rolar(4)
+    #tipo de cabelo
+    tipoCabelos = setTiposCabelos()
 
-if amigosInimigos == 0:
-    amigosInimigos = setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()
-    
-elif amigosInimigos == 1:
-    amigosInimigos = setAmigo() + "\n" + setOrigemAmizade()
-    
-elif amigosInimigos == 2:
-    #Um amigo
-    amigosInimigos = setAmigo() + "\n" + setOrigemAmizade() + "\n\n"
-    #Um inimigo
-    amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()   
-    
-else:
-
-    if  rolarDados.parImpar() < 2:
-        amigosInimigos = setAmigo() + "\n" + setOrigemAmizade() + "\n\n" + setAmigo() + "\n" + setOrigemAmizade() + "\n\n"
-        amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()
-
+    #tipo de nascimento
+    if rolarDados.parImpar() < 2:
+        #nascimento
+        nascimento = setNascimentoMundano()
     else:
+        #nascimento
+        nascimento = setNascimentoEspecial()
+        
+    #pais
+    pais = setPais()
+
+    #irmãos?
+    if rolarDados.parImpar() < 2:
+        irmaos = "Filho único"
+    else:
+        irmaos = str(rolarDados.rolar(12)+1)
+
+    #Sorte/Tragedia
+    sorteTragedia = rolarDados.rolar(4)
+
+    if sorteTragedia == 1:
+        sorteTragedia = setTragedia()
+    elif sorteTragedia == 2:
+        sorteTragedia = setSorte()
+    elif sorteTragedia == 3:
+        sorteTragedia = setSorte() + " " + setTragedia()
+    else:
+        sorteTragedia = "Vida monótona"
+        
+    #Status Social Inicial
+    statusInicial = setStatusInicial()
+
+    #Profissão
+    if statusInicial == "Escravo":
+        profissao = setEscravo()
+    elif statusInicial == "Plebeu":
+        profissao = setPlebeu()
+    elif statusInicial == "Nobre":
+        profissao = setNobre()
+        
+    #Amigos e inimigos
+    amigosInimigos = rolarDados.rolar(4)
+
+    if amigosInimigos == 0:
+        amigosInimigos = setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()
+        
+    elif amigosInimigos == 1:
+        amigosInimigos = setAmigo() + "\n" + setOrigemAmizade()
+        
+    elif amigosInimigos == 2:
+        #Um amigo
         amigosInimigos = setAmigo() + "\n" + setOrigemAmizade() + "\n\n"
-        amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade() + "\n\n"
-        amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()
-          
-#Vida amorosa
-vidaAmorosa = rolarDados.rolar(4)
- 
-if vidaAmorosa == 1:
-    vidaAmorosa = setAmorProblematico()
-else:
-    vidaAmorosa = setVidaAmorosa(vidaAmorosa)
-    
-#algo q n goste
-naoGosta = setNaoGosta()
-
-#Medo
-medo = setMedo()
-
-#Opinião quanto a desconhecidos
-opiniaoDesconhecidos = setOpiniaoDesconhecidos()
-
-#Tem arrependimento?
-arrependimento = setArrependimento()
-
-#tem mania?
-mania = setManias()
-
-#O que fez se aventurar?
-motivacaoAventureira = setMotivacaoAventureira()
-
-#Feito notável
-feitoNotavel = setFeitoNotavel()
-
-#odeia quantas criaturas
-qtdCriaturas = rolarDados.rolar(3)+1
-criaturasOdiadas = ""
-counter = 0
-
-while counter < qtdCriaturas :
-    criaturasOdiadas += setCriaturas() + "\n" + setMotivoOdioCriatura() + "\n\n"
-    counter += 1
-
-#Deficiente
-deficiencia = rolarDados.probabilidade(14,100)
-
-if deficiencia:
-    deficiencia = rolarDados.rolar(8)+1
-
-    if deficiencia < 2:
-        deficiencia = "Portador de autismo. "
+        #Um inimigo
+        amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()   
         
-    elif deficiencia < 3:
-        deficiencia = setProblemaAuditivo()
+    else:
+
+        if  rolarDados.parImpar() < 2:
+            amigosInimigos = setAmigo() + "\n" + setOrigemAmizade() + "\n\n" + setAmigo() + "\n" + setOrigemAmizade() + "\n\n"
+            amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()
+
+        else:
+            amigosInimigos = setAmigo() + "\n" + setOrigemAmizade() + "\n\n"
+            amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade() + "\n\n"
+            amigosInimigos += setInimigo() + "\n" + setCausaInimizade() + "\n" + setConsequenciaInimizade()
+              
+    #Vida amorosa
+    vidaAmorosa = rolarDados.rolar(4)
+     
+    if vidaAmorosa == 1:
+        vidaAmorosa = setAmorProblematico()
+    else:
+        vidaAmorosa = setVidaAmorosa(vidaAmorosa)
         
-    elif deficiencia < 4:
-        deficiencia = "Deficiência Intelectual. "
+    #algo q n goste
+    naoGosta = setNaoGosta()
+
+    #Medo
+    medo = setMedo()
+
+    #Opinião quanto a desconhecidos
+    opiniaoDesconhecidos = setOpiniaoDesconhecidos()
+
+    #Tem arrependimento?
+    arrependimento = setArrependimento()
+
+    #tem mania?
+    mania = setManias()
+
+    #O que fez se aventurar?
+    motivacaoAventureira = setMotivacaoAventureira()
+
+    #Feito notável
+    feitoNotavel = setFeitoNotavel()
+
+    #odeia quantas criaturas
+    qtdCriaturas = rolarDados.rolar(3)+1
+    criaturasOdiadas = ""
+    counter = 0
+
+    while counter < qtdCriaturas :
+        criaturasOdiadas += setCriaturas() + "\n" + setMotivoOdioCriatura() + "\n\n"
+        counter += 1
+
+    #Deficiente
+    deficiencia = rolarDados.probabilidade(14,100)
+
+    if deficiencia:
+        deficiencia = rolarDados.rolar(8)+1
+
+        if deficiencia < 2:
+            deficiencia = "Portador de autismo. "
+            
+        elif deficiencia < 3:
+            deficiencia = setProblemaAuditivo()
+            
+        elif deficiencia < 4:
+            deficiencia = "Deficiência Intelectual. "
+            
+        elif deficiencia < 5:
+            deficiencia = setPerdaMemoria()
+
+        elif deficiencia < 6:
+            deficiencia = "Doença Mental "
+
+        elif deficiencia < 7:
+            deficiencia = "Deficiência Física "
+
+        elif deficiencia < 8:
+            deficiencia = "Problema na fala "
+
+        else:
+            deficiencia = "Problema na visão "
         
-    elif deficiencia < 5:
-        deficiencia = setPerdaMemoria()
-
-    elif deficiencia < 6:
-        deficiencia = "Doença Mental "
-
-    elif deficiencia < 7:
-        deficiencia = "Deficiência Física "
-
-    elif deficiencia < 8:
-        deficiencia = "Problema na fala "
-
+        '''
+        deficiencia = rolarDados.rolar(3)+1
+        
+        if deficiencia < 2:
+            plegia
+        elif deficiencia < 3:
+            paresia
+        else:
+        '''    
     else:
-        deficiencia = "Problema na visão "
-    
-    '''
-    deficiencia = rolarDados.rolar(3)+1
-    
-    if deficiencia < 2:
-        plegia
-    elif deficiencia < 3:
-        paresia
+        deficiencia = "Não possui deficiência."
+
+    #Doença Cronica
+    doenteCronico = rolarDados.probabilidade(8,100)
+
+    if doenteCronico:
+        doenteCronico = "Possui doença crônica."
     else:
-    '''    
-else:
-    deficiencia = "Não possui deficiência."
+        doenteCronico = "Não é doente crônico."
 
-#Doença Cronica
-doenteCronico = rolarDados.probabilidade(8,100)
+    reliquia = rolarDados.probabilidade(10,100)
 
-if doenteCronico:
-    pass
-else:
-    doenteCronico = "Não é doente crônico."
-
-reliquia = rolarDados.probabilidade(10,100)
-
-if not reliquia:
-    reliquia = "Não tem relíquia."
-    
-else:
-    reliquia = rolarDados.rolar(100)+1
-
-    if reliquia < 26:
-        reliquia = "Valiosa, "
-    elif reliquia < 36:
-        reliquia = "Mágica, "
-    elif reliquia < 51:
-        reliquia = "Especial, "
+    if not reliquia:
+        reliquia = "Não tem relíquia."
+        
     else:
-        reliquia = "Pessoal/imprestável, "
+        reliquia = rolarDados.rolar(100)+1
 
-    reliquia += setTipoReliquia()
+        if reliquia < 26:
+            reliquia = "Valiosa, "
+        elif reliquia < 36:
+            reliquia = "Mágica, "
+        elif reliquia < 51:
+            reliquia = "Especial, "
+        else:
+            reliquia = "Pessoal/imprestável, "
 
-print("É nooooIIIXXX MALUUCO!!!")
+        reliquia += setTipoReliquia()
+        
+    #modelPersonagem.Personagem.sets()
+    personagem = modelPersonagem.Personagem(classe, genero, sexualidade, raca, personalidade, introvertido, pele, corOlhos, corCabelos, tipoCabelos, nascimento, pais,
+                irmaos, sorteTragedia, statusInicial, profissao, amigosInimigos, vidaAmorosa, naoGosta, medo, opiniaoDesconhecidos, arrependimento, mania,
+                 motivacaoAventureira, feitoNotavel, criaturasOdiadas, deficiencia, doenteCronico, reliquia)
+
+    return personagem
+
