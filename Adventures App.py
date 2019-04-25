@@ -2,7 +2,7 @@ import rolarDados;
 import gerarPersonagem;
 
 '''
-As perguntas abaixo fomentam o sistema com informações necessárias para que a IA gere aventuras aleatórias e complexas
+As perguntas abaixo fomentam o sistema com informações necessárias para que a IA gere, no futuro, do verbo ainda não gera, aventuras aleatórias e complexas
 '''
 
 #qtdJogadores vai servir para equilibrar a qtd de inimigos em cada confronto de batalha.
