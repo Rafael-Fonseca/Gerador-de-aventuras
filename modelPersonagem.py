@@ -63,7 +63,7 @@ class Personagem:
         self.corCabelos = corCabelos
         
     def setTipoCabelos(self, tipoCabelos):
-        self.tiposCabelos = tiposCabelos
+        self.tiposCabelos = tipoCabelos
         
     def setNascimento(self, nascimento):
         self.nascimento = nascimento

@@ -1,4 +1,4 @@
-import random;
+import random
 
 def rolar(numero):
     rolado = random.randint(0,numero-1)

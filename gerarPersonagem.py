@@ -1,5 +1,5 @@
-import rolarDados;
-import modelPersonagem;
+import rolarDados
+import modelPersonagem
 
 # Vetores Banco de Dados
 
@@ -78,21 +78,25 @@ def setPele():
     def marca(selectedPele, corPele, auxPele):
         if corPele[auxPele] == "Marca de Nascença":
             selectedPele += " " + corPele[auxPele]
-            corPele.remove("Albino")
+            if 'Albino' in corPele:
+                corPele.remove("Albino")
                 
             return selectedPele
                 
         return selectedPele
 
     def mancha(selectedPele, corPele, auxPele):
-        if corPele[auxPele] == "Pele manchada":
-            if rolarDados.parImpar()%2 == 0:
-                selectedPele += " mancha na pele mais clara que a pele"
-            else:
-                selectedPele += " mancha na pele mais escura que a pele"
+        try:
+            if corPele[auxPele] == "Pele manchada":
+                if rolarDados.parImpar()%2 == 0:
+                    selectedPele += " mancha na pele mais clara que a pele"
+                else:
+                    selectedPele += " mancha na pele mais escura que a pele"
+                return selectedPele
+
             return selectedPele
-                
-        return selectedPele  
+        except:
+            return selectedPele + 'decida se + ou - escura'
 
     auxPele = rolarDados.rolar(len(corPele))
     selectedPele = ""
@@ -105,7 +109,10 @@ def setPele():
         selectedPele += marca(selectedPele, corPele, auxPele)
         selectedPele += mancha(selectedPele, corPele, auxPele)
 
-        corPele.remove(corPele[auxPele])
+        try:
+            corPele.remove(corPele[auxPele])
+        except:
+            pass
         auxPele = rolarDados.rolar(len(corPele))
 
     #A linha de baixo coloca valor caso a 1 rolagem seja menor que 26 ou completa no caso de a 1 ter sido maior que 25
@@ -987,3 +994,34 @@ def gerarPersonagem():
 
     return personagem
 
+
+def printPersonagem(p):
+    print("Classe: ", p.classe)
+    print("Gênero: ", p.genero)
+    print("Opção Sexual: ", p.sexualidade)
+    print("Raça: ", p.raca)
+    print("Personalidade: ", p.personalidade)
+    print("Intro - Extro versão: ", p.introvertido)
+    print("Pele: ", p.pele)
+    print("Olhos: ", p.corOlhos)
+    print("Cabelos: ", p.corCabelos)
+    print("Tipo de cabelo: ", p.tipoCabelos)
+    print("Nascimento: ", p.nascimento)
+    print("Pais: ", p.pais)
+    print("Irmãos: ", p.irmaos)
+    print("Sorte - Tragédia: ", p.sorteTragedia)
+    print("Status inicial: ", p.statusInicial)
+    print("Profissão: ", p.profissao)
+    print("Amigos e Inimigos: ", p.amigosInimigos)
+    print("Vida Amorosa: ", p.vidaAmorosa)
+    print("Não gosta de: ", p.naoGosta)
+    print("Medo: ", p.medo)
+    print("Opinião sobre desconhecidos: ", p.opiniaoDesconhecidos)
+    print("Arrependimento: ", p.arrependimento)
+    print("Mania: ", p.mania)
+    print("Motivação Aventureira: ", p.motivacaoAventureira)
+    print("Primeiro Feito Notável: ", p.feitoNotavel)
+    print("Criaturas odiadas: ", p.criaturasOdiadas)
+    print("Deficiência: ", p.deficiencia)
+    print("Têm alguma doença crônica? ", p.doenteCronico)
+    print("Relíquia pessoal: ", p.reliquia)
